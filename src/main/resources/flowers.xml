@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/flowers"
+         xsi:schemaLocation="http://www.example.com/flowers schema.xsd">
+    <garden-flower id="a1" name="verbena">
+        <planting-date>2019-01-01</planting-date>
+        <origin>usa</origin>
+        <soil>podzol</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="yellow">
+            <leaf-color>green</leaf-color>
+            <average-size>100</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>25</temperature>
+            <photophilous>true</photophilous>
+            <watering>1000</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <pot-flower id="a2" name="hibiscus">
+        <planting-date>2019-01-01</planting-date>
+        <origin>china</origin>
+        <soil>soil</soil>
+        <multiplying>cuttings</multiplying>
+        <visual-parameters stem-color="yellow">
+            <leaf-color>rose</leaf-color>
+            <average-size>30</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>18</temperature>
+            <photophilous>false</photophilous>
+            <watering>300</watering>
+        </growing-tips>
+        <succulent>true</succulent>
+    </pot-flower>
+</flowers>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/flowers"
+           xmlns="http://www.example.com/flowers">
+
+
+    <xs:element name="flower" type="flowerType" abstract="true"/>
+    <xs:element name="garden-flower" type="gardenFlowerType" substitutionGroup="flower"/>
+    <xs:element name="pot-flower" type="potFlowerType" substitutionGroup="flower"/>
+
+
+    <xs:element name="flowers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="flower" minOccurs="2" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="flowerType">
+        <xs:sequence>
+            <xs:element name="planting-date" type="xs:date"/>
+            <xs:element name="origin" type="xs:string"/>
+            <xs:element name="soil" type="soilType"/>
+            <xs:element name="multiplying" type="multiplyingType"/>
+            <xs:element name="visual-parameters" type="visualParametersType"/>
+            <xs:element name="growing-tips" type="growingTipsType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="flowerID" use="required"/>
+        <xs:attribute name="name" type="flowerNameType" use="required"/>
+    </xs:complexType>
+
+
+    <xs:complexType name="gardenFlowerType">
+        <xs:complexContent>
+            <xs:extension base="flowerType">
+                <xs:sequence>
+                    <xs:element name="perennial" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="potFlowerType">
+        <xs:complexContent>
+            <xs:extension base="flowerType">
+                <xs:sequence>
+                    <xs:element name="succulent" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:simpleType name="flowerNameType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(.){1,50}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="flowerID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[a-z][0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="soilType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="podzol"/>
+            <xs:enumeration value="soil"/>
+            <xs:enumeration value="sod-podzol"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="visualParametersType">
+        <xs:sequence>
+            <xs:element name="leaf-color" type="xs:string"/>
+            <xs:element name="average-size" type="xs:positiveInteger"/>
+        </xs:sequence>
+        <xs:attribute name="stem-color" type="xs:string" use="optional" default="green"/>
+    </xs:complexType>
+
+
+    <xs:complexType name="growingTipsType">
+        <xs:sequence>
+            <xs:element name="temperature" type="xs:positiveInteger"/>
+            <xs:element name="photophilous" type="xs:boolean"/>
+            <xs:element name="watering" type="xs:positiveInteger"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:simpleType name="multiplyingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="leaves"/>
+            <xs:enumeration value="cuttings"/>
+            <xs:enumeration value="seed"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+</xs:schema>

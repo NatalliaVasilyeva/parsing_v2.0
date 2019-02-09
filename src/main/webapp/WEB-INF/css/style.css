@@ -1,0 +1,40 @@
+H1, H2, H3, span
+{
+    color: red;
+    font-style:  italic;
+}
+
+table{
+    align-self: center;
+    margin: auto;
+    text-align: center;
+    border-collapse: separate;
+    border: 5px solid #ECE9E0;
+    border-spacing: 5px;
+    border-radius: 20px;
+    border-color: #656665;
+    background: #fdfdfd;
+    font-size: 14px;
+    font-family: "Arial";
+    width: auto;
+}
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 3px;
+    background: #F5D7BF;
+}
+
+caption{
+    font-style: italic;
+    text-align: center;
+    color: #547901;
+    font-size: 20px;
+}
+
+td:nth-child(even) {
+    background: #F6D27E;
+}
+td:nth-child(odd) {
+    background: #D1C7BF;
+}
