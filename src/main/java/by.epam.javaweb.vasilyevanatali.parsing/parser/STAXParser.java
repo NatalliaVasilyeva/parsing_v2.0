@@ -123,7 +123,7 @@ public class STAXParser extends AbstractFlowerBuilder {
         VisualParameters visualParameters = new VisualParameters();
 
         String stemColor = FlowerEnum.STEM_COLOR.getValue();
-        if (stemColor != null) {
+        if (stemColor!= null) {
             visualParameters.setStemColor(reader.getAttributeValue(null, stemColor));
         } else {
             visualParameters.setStemColor("green");

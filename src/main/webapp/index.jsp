@@ -17,23 +17,24 @@
         }
 
         p {
-            margin-left: 20px
+            margin-left: 30px;
+            font-size: 30px;
+        }
+
+        h1 {
+            color: cyan;
         }
     </style>
 </head>
 
 <body>
-<h1>The page to choose the file to parse and type of parsing</h1>
+<h1 align="center">Hello friend!! Make your choice, please</h1>
 <p></p>
 
 <form action="parse" enctype="multipart/form-data" method="post">
-    <p><b>Choose the file</b></p>
-    <p><input type="file" name="file">
-        <input type="submit" value="Отправить"></p>
-
-
-    <p><b>Choose the parser</b>
-        <label>
+    <p align="center"><b>Choose the parser</b></p>
+    <p align="center">
+        <label align="center">
             <select name="parser" size="1">
                 <option value="dom">DOM</option>
                 <option value="sax">SAX</option>
@@ -41,6 +42,13 @@
             </select>
         </label>
     </p>
+
+    <p align="center"><b>Choose the file</b></p>
+    <p align="center"><input type="file" name="file">
+        <input type="submit" value="Send"></p>
+
+
+
 </form>
 
 </body>

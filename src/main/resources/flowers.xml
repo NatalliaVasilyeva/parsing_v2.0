@@ -34,4 +34,228 @@
         </growing-tips>
         <succulent>true</succulent>
     </pot-flower>
+    <pot-flower id="a3" name="violet">
+        <planting-date>2019-01-05</planting-date>
+        <origin>africa</origin>
+        <soil>podzol</soil>
+        <multiplying>leaves</multiplying>
+        <visual-parameters stem-color="green">
+            <leaf-color>violet</leaf-color>
+            <average-size>20</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>25</temperature>
+            <photophilous>true</photophilous>
+            <watering>500</watering>
+        </growing-tips>
+        <succulent>false</succulent>
+    </pot-flower>
+    <pot-flower id="a4" name="azalea">
+        <planting-date>2019-01-05</planting-date>
+        <origin>america</origin>
+        <soil>sod_podzol</soil>
+        <multiplying>leaves</multiplying>
+        <visual-parameters stem-color="brown">
+            <leaf-color>red</leaf-color>
+            <average-size>25</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>25</temperature>
+            <photophilous>true</photophilous>
+            <watering>350</watering>
+        </growing-tips>
+        <succulent>false</succulent>
+    </pot-flower>
+    <pot-flower id="a5" name="maranta">
+        <planting-date>2019-01-10</planting-date>
+        <origin>azia</origin>
+        <soil>podzol</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="yellow">
+            <leaf-color>green</leaf-color>
+            <average-size>45</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>30</temperature>
+            <photophilous>true</photophilous>
+            <watering>950</watering>
+        </growing-tips>
+        <succulent>true</succulent>
+    </pot-flower>
+    <garden-flower id="a6" name="gaillardia">
+        <planting-date>2018-01-01</planting-date>
+        <origin>usa</origin>
+        <soil>sod_podzol</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="sunny">
+            <leaf-color>orange</leaf-color>
+            <average-size>65</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>25</temperature>
+            <photophilous>true</photophilous>
+            <watering>600</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <garden-flower id="a7" name="Phlox paniculata">
+        <planting-date>2018-06-10</planting-date>
+        <origin>europa</origin>
+        <soil>soil</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="dark green">
+            <leaf-color>pink</leaf-color>
+            <average-size>30</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>20</temperature>
+            <photophilous>false</photophilous>
+            <watering>500</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <garden-flower id="a8" name="russian sage">
+        <planting-date>2018-07-10</planting-date>
+        <origin>russia</origin>
+        <soil>podzol</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="white">
+            <leaf-color>white</leaf-color>
+            <average-size>100</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>28</temperature>
+            <photophilous>true</photophilous>
+            <watering>400</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <pot-flower id="a9" name="soluline">
+        <planting-date>2018-03-02</planting-date>
+        <origin>azia</origin>
+        <soil>podzol</soil>
+        <multiplying>leaves</multiplying>
+        <visual-parameters stem-color="light green">
+            <leaf-color>light green</leaf-color>
+            <average-size>15</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>18</temperature>
+            <photophilous>false</photophilous>
+            <watering>1500</watering>
+        </growing-tips>
+        <succulent>false</succulent>
+    </pot-flower>
+    <pot-flower id="a10" name="room bamboo">
+        <planting-date>2018-03-06</planting-date>
+        <origin>azia</origin>
+        <soil>sod_podzol</soil>
+        <multiplying>cuttings</multiplying>
+        <visual-parameters stem-color="green">
+            <leaf-color>green</leaf-color>
+            <average-size>30</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>18</temperature>
+            <photophilous>false</photophilous>
+            <watering>600</watering>
+        </growing-tips>
+        <succulent>false</succulent>
+    </pot-flower>
+    <pot-flower id="a11" name="kalanchoe">
+        <planting-date>2018-07-06</planting-date>
+        <origin>tropic</origin>
+        <soil>sod_podzol</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="orange">
+            <leaf-color>pink</leaf-color>
+            <average-size>30</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>30</temperature>
+            <photophilous>true</photophilous>
+            <watering>600</watering>
+        </growing-tips>
+        <succulent>true</succulent>
+    </pot-flower>
+    <garden-flower id="a12" name="asters">
+        <planting-date>2018-07-11</planting-date>
+        <origin>europa</origin>
+        <soil>sod_podzol</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="white">
+            <leaf-color>yellow</leaf-color>
+            <average-size>60</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>25</temperature>
+            <photophilous>true</photophilous>
+            <watering>350</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <garden-flower id="a13" name="purple coneflower">
+        <planting-date>2018-05-11</planting-date>
+        <origin>chili</origin>
+        <soil>sod_podzol</soil>
+        <multiplying>seed</multiplying>
+        <visual-parameters stem-color="purple">
+            <leaf-color>puple</leaf-color>
+            <average-size>45</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>30</temperature>
+            <photophilous>true</photophilous>
+            <watering>500</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <garden-flower id="a14" name="yarrow">
+        <planting-date>2018-05-11</planting-date>
+        <origin>usa</origin>
+        <soil>podzol</soil>
+        <multiplying>leaves</multiplying>
+        <visual-parameters stem-color="dark green">
+            <leaf-color>orange</leaf-color>
+            <average-size>95</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>23</temperature>
+            <photophilous>true</photophilous>
+            <watering>600</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <garden-flower id="a15" name="siberian iris">
+        <planting-date>2018-08-07</planting-date>
+        <origin>russia</origin>
+        <soil>podzol</soil>
+        <multiplying>leaves</multiplying>
+        <visual-parameters stem-color="light green">
+            <leaf-color>blue</leaf-color>
+            <average-size>75</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>19</temperature>
+            <photophilous>true</photophilous>
+            <watering>832</watering>
+        </growing-tips>
+        <perennial>true</perennial>
+    </garden-flower>
+    <pot-flower id="a16" name="coleria">
+        <planting-date>2018-05-01</planting-date>
+        <origin>asia</origin>
+        <soil>podzol</soil>
+        <multiplying>leaves</multiplying>
+        <visual-parameters stem-color="brown">
+            <leaf-color>red</leaf-color>
+            <average-size>45</average-size>
+        </visual-parameters>
+        <growing-tips>
+            <temperature>18</temperature>
+            <photophilous>false</photophilous>
+            <watering>500</watering>
+        </growing-tips>
+        <succulent>false</succulent>
+    </pot-flower>
 </flowers>

@@ -8,9 +8,7 @@ import by.epam.javaweb.vasilyevanatali.parsing.entity.Soil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ public class FlowerHandler extends DefaultHandler {
 
     public FlowerHandler() {
 
-      //  flowers = new ArrayList<>();
+        flowers = new ArrayList<>();
         elementWithText = EnumSet.range(FlowerEnum.ID, FlowerEnum.SUCCULENT);
     }
 

@@ -74,7 +74,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="podzol"/>
             <xs:enumeration value="soil"/>
-            <xs:enumeration value="sod-podzol"/>
+            <xs:enumeration value="sod_podzol"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -84,7 +84,7 @@
             <xs:element name="leaf-color" type="xs:string"/>
             <xs:element name="average-size" type="xs:positiveInteger"/>
         </xs:sequence>
-        <xs:attribute name="stem-color" type="xs:string" use="optional" default="green"/>
+        <xs:attribute name="stem-color" type="xs:string" use = "optional" default="green"/>
     </xs:complexType>
 
 
