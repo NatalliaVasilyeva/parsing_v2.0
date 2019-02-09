@@ -7,10 +7,19 @@
 --%>
 
 
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Main page</title>
+    <style type="text/css">
+        body {
+            background-color: coral;
+        }
+
+        p {
+            margin-left: 20px
+        }
+    </style>
 </head>
 
 <body>
@@ -23,13 +32,15 @@
         <input type="submit" value="Отправить"></p>
 
 
-<p><b>Choose the parser</b>
-    <select  name="parser" size="1">
-        <option value="dom">DOM</option>
-        <option value="sax">SAX</option>
-        <option value="stax">StAX</option>
-    </select>
-</p>
+    <p><b>Choose the parser</b>
+        <label>
+            <select name="parser" size="1">
+                <option value="dom">DOM</option>
+                <option value="sax">SAX</option>
+                <option value="stax">StAX</option>
+            </select>
+        </label>
+    </p>
 </form>
 
 </body>

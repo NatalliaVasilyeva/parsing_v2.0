@@ -1,15 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <html>
 <head>
     <meta charset="utf-8">
     <title>result</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" >
     <style type="text/css">
-        body {background-color: red}
-        p {margin-left: 20px}
-        table{ align-self: center;
+        body {
+            background-color: red
+        }
+
+        p {
+            margin-left: 20px
+        }
+
+        table {
+            align-self: center;
             margin: auto;
             text-align: center;
             border-collapse: separate;
@@ -19,20 +25,27 @@
             border-color: #656665;
             background: #fdfdfd;
             font-size: 14px;
-            font-family: "Arial";
-            width: auto;}
-        caption{ font-style: italic;
+            font-family: Arial;
+            width: auto;
+        }
+
+        caption {
+            font-style: italic;
             text-align: center;
             color: #547901;
-            font-size: 20px;}
-        td{border: 1px solid #ddd;
+            font-size: 20px;
+        }
+
+        td {
+            border: 1px solid #ddd;
             padding: 10px;
             border-radius: 3px;
-            background: #F5D7BF;}
+            background: #F5D7BF;
+        }
     </style>
 </head>
 <body>
-<h1 align="center">Hey!!! See what can do my the best parser!:)</h1>
+<h1 align="center">Hey!!! See what my parser can do!:)</h1>
 <p></p>
 <table>
     <caption>"Result of parsing"</caption>
@@ -50,6 +63,7 @@
         <th>Photophilous</th>
         <th>Watering</th>
     </tr>
+    <%--@elvariable id="flowers" type="java.util.List"--%>
     <c:forEach items="${flowers}" var="flower">
         <tr>
             <td>${flower.id}</td>

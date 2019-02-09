@@ -8,10 +8,9 @@ import by.epam.javaweb.vasilyevanatali.parsing.entity.PotFlower;
 import by.epam.javaweb.vasilyevanatali.parsing.entity.Soil;
 import by.epam.javaweb.vasilyevanatali.parsing.entity.VisualParameters;
 import jdk.nashorn.internal.runtime.ParserException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -20,27 +19,21 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-public class STAXFlowerBuilder extends AbstractFlowerBuilder {
+public class STAXParser extends AbstractFlowerBuilder {
+    private static final Logger LOGGER = LogManager.getLogger(STAXParser.class);
+    private XMLInputFactory inputFactory;
 
-//    private XMLInputFactory inputFactory;
-//
-//    public STAXFlowerBuilder() {
-//        inputFactory = XMLInputFactory.newInstance();
-//    }
-
+    public STAXParser() {
+        inputFactory = XMLInputFactory.newInstance();
+    }
 
     @Override
-   // public void buildFlowerList(String pathFile) {
     public void buildFlowerList(InputStream inputStream) {
-        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-      //  FileInputStream inputStreama;
         XMLStreamReader reader;
         String name;
 
         try {
-        //    inputStream = new FileInputStream(new File(pathFile));
             reader = inputFactory.createXMLStreamReader(inputStream);
-           // reader = inputFactory.createXMLStreamReader(inputStream);
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
@@ -48,22 +41,21 @@ public class STAXFlowerBuilder extends AbstractFlowerBuilder {
                     if (name.equals(FlowerEnum.GARDEN_FLOWER.getValue())) {
                         Flower gardenFlower = buildFlower(new GardenFlower(), reader);
                         flowersList.add(gardenFlower);
+                        LOGGER.info("Garden flower add to list");
                     } else if (name.equals(FlowerEnum.POT_FLOWER.getValue())) {
                         Flower potFlower = buildFlower(new PotFlower(), reader);
-
                         flowersList.add(potFlower);
+                        LOGGER.info("Pot flower add to list");
                     }
                 }
             }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
         } catch (XMLStreamException e) {
-            e.printStackTrace();
+            LOGGER.error("Problem with StAX parser");
+            throw new ParserException("Problem with StAX parser");
         }
     }
 
-    private Flower buildFlower(Flower flower, XMLStreamReader reader) {
-
+    private Flower buildFlower(Flower flower, XMLStreamReader reader) throws XMLStreamException {
         flower.setId(reader.getAttributeValue(null, FlowerEnum.ID.getValue()));
         String name = FlowerEnum.NAME.getValue();
         if (name != null) {
@@ -120,15 +112,14 @@ public class STAXFlowerBuilder extends AbstractFlowerBuilder {
                         break;
                 }
             }
-            //   return flower;
+
         } catch (XMLStreamException e) {
-            //  throw new XMLStreamException("Unknown element in tag Flower");
+            throw new XMLStreamException("Unknown element in tag Flower");
         }
         return flower;
     }
 
-
-    private VisualParameters buildVisualParameters(XMLStreamReader reader) throws ParserException {
+    private VisualParameters buildVisualParameters(XMLStreamReader reader) throws XMLStreamException {
         VisualParameters visualParameters = new VisualParameters();
 
         String stemColor = FlowerEnum.STEM_COLOR.getValue();
@@ -167,15 +158,15 @@ public class STAXFlowerBuilder extends AbstractFlowerBuilder {
                         break;
                 }
             }
-            //     return visualParameters;
+
         } catch (XMLStreamException e) {
-            //    throw new ParserException("Unknown element in tag Visual Parameters", e);
+            throw new XMLStreamException("Unknown element in tag Visual Parameters", e);
         }
         return visualParameters;
     }
 
 
-    private GrowingTips buildGrowingTips(XMLStreamReader reader) throws ParserException {
+    private GrowingTips buildGrowingTips(XMLStreamReader reader) throws XMLStreamException {
         GrowingTips growingTips = new GrowingTips();
         int type;
         String name;
@@ -213,15 +204,13 @@ public class STAXFlowerBuilder extends AbstractFlowerBuilder {
                         break;
                 }
             }
-            //  return growingTips;
         } catch (XMLStreamException e) {
-            //   throw new WrongValueException("Unknown element in tag Growing Tips");
+            throw new XMLStreamException("Unknown element in tag Growing Tips");
 
         }
         return growingTips;
     }
 
-    //получение текстового значения тега
     private String getXMLText(XMLStreamReader reader) throws XMLStreamException {
         String text = null;
         if (reader.hasNext()) {

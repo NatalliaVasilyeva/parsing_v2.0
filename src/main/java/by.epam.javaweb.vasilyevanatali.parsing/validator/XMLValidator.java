@@ -1,5 +1,7 @@
 package by.epam.javaweb.vasilyevanatali.parsing.validator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -14,7 +16,7 @@ import java.io.InputStream;
 
 public class XMLValidator {
 
- //   private static final Logger LOGGER = LogManager.getLogger(XMLValidator.class.getSimpleName());
+    private static final Logger LOGGER = LogManager.getLogger(XMLValidator.class.getSimpleName());
 
     public boolean validate(InputStream pathXml) {
 
@@ -27,8 +29,8 @@ public class XMLValidator {
             validator.validate(new StreamSource(pathXml));
 
         } catch (SAXException | IOException e) {
-     //       LOGGER.error("file is not valid");
-            return  false;
+            LOGGER.error("file is not valid");
+            return false;
         }
         return true;
     }

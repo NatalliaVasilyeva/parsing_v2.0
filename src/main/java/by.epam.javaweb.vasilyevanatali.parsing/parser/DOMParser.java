@@ -8,57 +8,52 @@ import by.epam.javaweb.vasilyevanatali.parsing.entity.Multiplying;
 import by.epam.javaweb.vasilyevanatali.parsing.entity.PotFlower;
 import by.epam.javaweb.vasilyevanatali.parsing.entity.Soil;
 import by.epam.javaweb.vasilyevanatali.parsing.entity.VisualParameters;
+import jdk.nashorn.internal.runtime.ParserException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class DOMFlowerBuilder extends AbstractFlowerBuilder {
+public class DOMParser extends AbstractFlowerBuilder {
 
-//    private static final Logger LOGGER = LogManager.getLogger(DOMFlowerBuilder.class);
+    private static final Logger LOGGER = LogManager.getLogger(DOMParser.class);
 
-//    DocumentBuilder builder;
+    DocumentBuilder builder;
 
-//
-//    public DOMFlowerBuilder() {
-//     //       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//        try {
-    //    builder = factory.newDocumentBuilder();
-//        } catch (ParserConfigurationException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public DOMParser() throws ParserException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        try {
+            builder = factory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            LOGGER.error("Can't make document builder factory");
+            throw new ParserException("Can't make document builder factory");
+        }
+    }
 
     @Override
+    public void buildFlowerList(InputStream inputStream) {
 
-    public void buildFlowerList(InputStream inputStream) throws ParserConfigurationException {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setIgnoringElementContentWhitespace(true);
-        DocumentBuilder builder = factory.newDocumentBuilder();
-
-
-        Document document = null;
+        Document document;
         try {
             document = builder.parse(inputStream);
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (SAXException | IOException e) {
+            LOGGER.error("Can't parse input stream using DOMParser");
+            throw new ParserException("Can't parse input stream using DOMParser");
         }
         Element root = document.getDocumentElement();
-        //    LOGGER.info("The root element is " + root.getNodeName());
+        LOGGER.info("The root element is " + root.getNodeName());
 
         NodeList gardenFlowersList = root.getElementsByTagName("garden-flower");
         NodeList potFlowersList = root.getElementsByTagName("pot-flower");
@@ -67,13 +62,16 @@ public class DOMFlowerBuilder extends AbstractFlowerBuilder {
             Element flowerElement = (Element) gardenFlowersList.item(i);
             Flower gardenFlower = buildGardenFlower(flowerElement);
             flowersList.add(gardenFlower);
+            LOGGER.info("Garden flower add to list");
         }
 
         for (int i = 0; i < potFlowersList.getLength(); i++) {
             Element flowerElement = (Element) potFlowersList.item(i);
             Flower potFlower = buildPotFlower(flowerElement);
             flowersList.add(potFlower);
+            LOGGER.info("Pot flower add to list");
         }
+        LOGGER.info("Flowers parsing was cancelled");
     }
 
     private Flower buildGardenFlower(Element flowerElement) {
@@ -141,5 +139,4 @@ public class DOMFlowerBuilder extends AbstractFlowerBuilder {
         DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(text, inputFormat);
     }
-
 }

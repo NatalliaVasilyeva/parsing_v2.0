@@ -18,20 +18,20 @@ public class VisualParameters {
         return stemColor;
     }
 
-    public void setStemColor(String stemColor) {
-        this.stemColor = stemColor;
-    }
-
     public String getLeafColor() {
         return leafColor;
     }
 
-    public void setLeafColor(String leafColor) {
-        this.leafColor = leafColor;
-    }
-
     public int getAverageSize() {
         return averageSize;
+    }
+
+    public void setStemColor(String stemColor) {
+        this.stemColor = stemColor;
+    }
+
+    public void setLeafColor(String leafColor) {
+        this.leafColor = leafColor;
     }
 
     public void setAverageSize(int averageSize) {
@@ -61,13 +61,8 @@ public class VisualParameters {
             return false;
         }
         if (leafColor == null) {
-            if (visualParameters.leafColor != null) {
-                return false;
-            }
-        } else if (!leafColor.equals(visualParameters.leafColor)) {
-            return false;
-        }
-        return true;
+            return visualParameters.leafColor == null;
+        } else return leafColor.equals(visualParameters.leafColor);
     }
 
     @Override

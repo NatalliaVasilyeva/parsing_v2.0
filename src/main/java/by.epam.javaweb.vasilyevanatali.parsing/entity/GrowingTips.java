@@ -18,20 +18,20 @@ public class GrowingTips {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
-    }
-
     public boolean isPhotophilous() {
         return isPhotophilous;
     }
 
-    public void setPhotophilous(boolean photophilous) {
-        isPhotophilous = photophilous;
-    }
-
     public int getWatering() {
         return watering;
+    }
+
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
+    }
+
+    public void setPhotophilous(boolean photophilous) {
+        isPhotophilous = photophilous;
     }
 
     public void setWatering(int watering) {
@@ -56,10 +56,7 @@ public class GrowingTips {
         if (isPhotophilous != growingTips.isPhotophilous) {
             return false;
         }
-        if (watering != growingTips.watering) {
-            return false;
-        }
-        return true;
+        return watering == growingTips.watering;
     }
 
     @Override

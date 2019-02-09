@@ -24,7 +24,7 @@
 
         <Console name="Console" target="SYSTEM_OUT">
 
-            <PatternLayout pattern="${pattern_0}" />
+            <PatternLayout pattern="${pattern_0}"/>
 
         </Console>
 
@@ -34,17 +34,17 @@
 
                      filePattern="${sys:catalina.home}/${date:yyyy-MM-dd}/%d{yyyy-MM-dd_HH-mm}_%i.log">
 
-            <PatternLayout pattern="${pattern_1}" />
+            <PatternLayout pattern="${pattern_1}"/>
 
             <Policies>
 
-                <TimeBasedTriggeringPolicy />
+                <TimeBasedTriggeringPolicy/>
 
-                <SizeBasedTriggeringPolicy size="25 KB" />
+                <SizeBasedTriggeringPolicy size="25 KB"/>
 
             </Policies>
 
-            <DefaultRolloverStrategy max="10" />
+            <DefaultRolloverStrategy max="10"/>
 
         </RollingFile>
 
@@ -54,9 +54,9 @@
 
         <Root level="debug">
 
-            <AppenderRef ref="Console" level="debug" />
+            <AppenderRef ref="Console" level="debug"/>
 
-            <AppenderRef ref="File" level="debug" />
+            <AppenderRef ref="File" level="debug"/>
 
         </Root>
 

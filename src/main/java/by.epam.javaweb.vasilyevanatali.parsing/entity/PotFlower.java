@@ -41,10 +41,7 @@ public class PotFlower extends Flower {
             return false;
         }
         PotFlower potFlower = (PotFlower) o;
-        if (isSucculent != potFlower.isSucculent) {
-            return false;
-        }
-        return true;
+        return isSucculent == potFlower.isSucculent;
     }
 
     @Override
@@ -57,9 +54,15 @@ public class PotFlower extends Flower {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("PotFlower{");
-        sb.append("isSucculent=").append(isSucculent);
-        sb.append('}');
-        return sb.toString();
+        return "PotFlower{" + "isSucculent=" + isSucculent +
+                '}' +
+                "name=" + super.getName() +
+                ", plantingDate=" + super.getPlantingDate() +
+                ", origin='" + super.getOrigin() + '\'' +
+                ", soilType=" + super.getSoilType() +
+                ", multiplying=" + super.getMultiplying() +
+                ", visualParameters=" + super.getVisualParameters() +
+                ", growingTips=" + super.getGrowingTips() +
+                '}';
     }
 }

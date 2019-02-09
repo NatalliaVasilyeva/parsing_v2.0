@@ -14,12 +14,6 @@ public abstract class AbstractFlowerBuilder {
         flowersList = new ArrayList<>();
     }
 
-    public AbstractFlowerBuilder(List<Flower> flowersList) {
-
-        this.flowersList = flowersList;
-
-    }
-
     public List<Flower> getFlowersList() {
         return flowersList;
     }

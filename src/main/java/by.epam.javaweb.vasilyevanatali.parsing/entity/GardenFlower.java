@@ -21,10 +21,6 @@ public class GardenFlower extends Flower {
         this.isPerennialFlowers = isPerennialFlowers;
     }
 
-    public boolean isPerennialFlowers() {
-        return isPerennialFlowers;
-    }
-
     public void setPerennialFlowers(boolean perennialFlowers) {
         isPerennialFlowers = perennialFlowers;
     }
@@ -41,10 +37,7 @@ public class GardenFlower extends Flower {
             return false;
         }
         GardenFlower gardenFlower = (GardenFlower) o;
-        if (isPerennialFlowers != gardenFlower.isPerennialFlowers) {
-            return false;
-        }
-        return true;
+        return isPerennialFlowers == gardenFlower.isPerennialFlowers;
     }
 
     @Override
@@ -57,10 +50,15 @@ public class GardenFlower extends Flower {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("GardenFlower{");
-        sb.append("isPerennialFlowers=").append(isPerennialFlowers);
-        sb.append('}');
-        sb.append("name=").append(super.getName());
-        return sb.toString();
+        return "GardenFlower{" + "isPerennialFlowers=" + isPerennialFlowers +
+                '}' +
+                "name= " + super.getName() +
+                ", plantingDate= " + super.getPlantingDate() +
+                ", origin= '" + super.getOrigin() + '\'' +
+                ", soilType= " + super.getSoilType() +
+                ", multiplying= " + super.getMultiplying() +
+                ", visualParameters= " + super.getVisualParameters() +
+                ", growingTips= " + super.getGrowingTips() +
+                '}';
     }
 }

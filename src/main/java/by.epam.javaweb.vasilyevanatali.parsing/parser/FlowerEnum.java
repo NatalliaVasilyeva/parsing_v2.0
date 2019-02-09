@@ -16,7 +16,7 @@ public enum FlowerEnum {
 
     NAME("name"),
 
-    PLANTING_DATE ("planting-date"),
+    PLANTING_DATE("planting-date"),
 
     SOIL("soil"),
 
@@ -41,19 +41,13 @@ public enum FlowerEnum {
     SUCCULENT("succulent");
 
 
-
     private String value;
 
-
     FlowerEnum(String value) {
-
         this.value = value;
-
     }
 
     public String getValue() {
-
         return value;
-
     }
 }
