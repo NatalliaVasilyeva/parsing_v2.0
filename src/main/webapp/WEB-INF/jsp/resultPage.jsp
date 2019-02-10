@@ -81,5 +81,9 @@
         </tr>
     </c:forEach>
 </table>
+
+<p align="left">
+     <a href="index.jsp">return to main page</a>
+</p>
 </body>
 </html>
